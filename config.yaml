@@ -1,0 +1,10 @@
+hub:
+  cookieSecret: "b85e9538b93761f2336025a3d5696cc237ee26c8115979d90b86b08b0c326957"
+token:
+  proxy: "f13056563eafb75ab062020dadef8c941b18f69da623e8af58554c06c585881a"
+singleuser:
+  storage:
+    type: none
+  image:
+    name: aodewahn/thinkdsp
+    tag: latest
