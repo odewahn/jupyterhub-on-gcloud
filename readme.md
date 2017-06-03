@@ -3,7 +3,7 @@
 [JupyterHub](https://github.com/jupyterhub/jupyterhub), a "multi-user server for Jupyter Notebooks", is an essential tool for teaching and training at scale with Jupyter.  As described in [The course of the future – and the technology behind it
 ](http://data.berkeley.edu/news/coursefuture), JupyterHub is being used to power an introductory class in Data Science taken by hundreds of students at Berkeley every semester.
 
-JupyterLab is a complex piece of software, and setting up and operating has been out of reach for many organizations, but recent work by members of the Jupyter team - especially [@CarolWilling](https://twitter.com/WillingCarol), [@choldgraf](https://twitter.com/choldgraf), [@Mbussonn](https://twitter.com/Mbussonn),  [@minrk](https://twitter.com/minrk), and  [@yuvipanda](https://twitter.com/yuvipanda) -- has put JupyterHub within reach of a host organizations.  
+JupyterLab is a complex piece of software, and setting up and operating has been out of reach for many organizations, but recent work by members of the Jupyter team - especially [@CarolWilling](https://twitter.com/WillingCarol), [@choldgraf](https://twitter.com/choldgraf), [@Mbussonn](https://twitter.com/Mbussonn),  [@minrk](https://twitter.com/minrk), and  [@yuvipanda](https://twitter.com/yuvipanda) -- has put JupyterHub within reach of a host organizations and individuals.  
 
 Their new project, a Helm package for JupyterHub and an accompanying article called [Zero to JupyterHub](http://zero-to-jupyterhub.readthedocs.io/en/latest/) on how to use it, describes the relatively straightforward steps needed to install and run JupyterHub on [Google cloud](https://cloud.google.com).
 
@@ -22,7 +22,7 @@ By the end of this tutorial, you'll have a public server (no DNS entry or https,
 What's not covered here:
 
 * How to set up an "authenticator" for JupyterHub so that you can control who can log into Jupyter and get a notebook.  Right now, anyone can just log in with any username and password.  Probably unwise.
-* How to handle persistent storage for the container.  This is [dependent on an unmerged issue on docker-stacks project](https://github.com/jupyter/docker-stacks/pull/388).  So, you won't be able to save the notebooks served via JupyterHub.
+* How to handle persistent storage for the container.  This is [dependent on an unmerged issue on docker-stacks project](https://github.com/jupyter/docker-stacks/pull/388).  So, you won't be able to save the notebooks served this instance of JupyterHub, but that should be fixed soon.
 
 
 ## Install the gcloud CLI
@@ -56,7 +56,7 @@ You only need to do this once.
 
 Once you've got the basic setup, you're ready to [create a kubernetes cluster](http://zero-to-jupyterhub.readthedocs.io/en/latest/create-k8s-cluster.html) where we'll install the JupyterHub server.  In an AWS context, this is kind of like setting up your EC2 instance.
 
-I used the name `notebook-test` as a cluster name with 3 nodes, a single-core high memory [machine types](https://cloud.google.com/compute/docs/machine-types) in the US central zone.  
+I set up a cluster named `notebook-test` consisting of 3 [high memory machine types with 2 virtual CPUs and 13 GB of memory](https://cloud.google.com/compute/docs/machine-types) operating in the US central zone.  
 
 ```
 gcloud container clusters create notebook-test \
