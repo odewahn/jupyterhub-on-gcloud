@@ -1,21 +1,21 @@
 # Deploying JupyterHub on Kubernetes on Google Cloud
 
 [JupyterHub](https://github.com/jupyterhub/jupyterhub), a "multi-user server for Jupyter Notebooks", is an essential tool for teaching and training at scale with Jupyter.  As described in [The course of the future – and the technology behind it
-](http://data.berkeley.edu/news/coursefuture), JupyterHub is being used to power an introductory class in Data Science taken by hundreds of students a Berkeley every semester.
+](http://data.berkeley.edu/news/coursefuture), JupyterHub is being used to power an introductory class in Data Science taken by hundreds of students at Berkeley every semester.
 
-Setting up and operating these JupyterLab environments has been out of reach except for organizations with very significant technical capabilities, but recent work by members of the Jupyter team - especially [@CarolWilling](https://twitter.com/WillingCarol), [@minrk](https://twitter.com/minrk), [@Mbussonn](https://twitter.com/Mbussonn), [@yuvipanda](https://twitter.com/yuvipanda), and [@choldgraf](https://twitter.com/choldgraf) -- has put JupyterHub within reach of a host organizations.  Removing the pain of installing and operating JupyterHub opens the doors to the classroom of the future to everyone.  
+JupyterLab is a complex piece of software, and setting up and operating has been out of reach for many organizations, but recent work by members of the Jupyter team - especially [@CarolWilling](https://twitter.com/WillingCarol), [@choldgraf](https://twitter.com/choldgraf), [@Mbussonn](https://twitter.com/Mbussonn),  [@minrk](https://twitter.com/minrk), and  [@yuvipanda](https://twitter.com/yuvipanda) -- has put JupyterHub within reach of a host organizations.  
 
 Their new project, a Helm package for JupyterHub and an accompanying article called [Zero to JupyterHub](http://zero-to-jupyterhub.readthedocs.io/en/latest/) on how to use it, describes the relatively straightforward steps needed to install and run JupyterHub on [Google cloud](https://cloud.google.com).
 
-In this article, I've followed along with the tutorial and added additional details on setting up gcloud, getting a docker content project ready to deploy on it, and some more background on some of the tools used.
+In this article, I've followed along with the tutorial, adding additional detail on setting up gcloud, preparing a docker image with content project you want to deploy in it, and provided more background on some of the tools used.
 
 ## Introduction
 
-Although there are a lot of steps, there are three main things to do:
+Although there are a lot of steps, there are three core things to do:
 
-* Create a k8s cluster.  In a traditional ops setting, this is kind of like setting up a new server, but in this case it's a cluster.
-* Install the JupyterHub application on the cluster using [helm](https://github.com/kubernetes/helm), the k8s package manager.
-* Configure the new JupyterHub instalce to serve a default content project.  In this case, I'll have it serve Allen Downey's [ThinkDSP](https://github.com/AllenDowney/ThinkDSP) project.  See [Computational Publishing with Jupyter](https://github.com/odewahn/computational-publishing) for more background information on this step.
+* Create a k8s cluster on gcloud.  In a traditional ops setting, this is kind of like setting up a new server.
+* Install the JupyterHub application on the cluster using [Helm](https://github.com/kubernetes/helm), the k8s package manager.
+* Configure the new JupyterHub instance to serve a default content project.  In this case, I'll have it serve Allen Downey's [ThinkDSP](https://github.com/AllenDowney/ThinkDSP) project.  See [Computational Publishing with Jupyter](https://github.com/odewahn/computational-publishing) for more background information on this step.
 
 By the end of this tutorial, you'll have a public server (no DNS entry or https, which is something I'll need to figure out how to add) where anyone can log in and get a running instance of ThinkDSP.
 
@@ -79,7 +79,6 @@ gke-notebook-test-default-pool-fc9a005b-tj84   Ready     44s       v1.6.4
 
 [Helm](https://helm.sh/) is the package manager for Kubernetes; it's like apt/yum/homebrew for a cluster.  It's used to install charts, which are are packages of pre-configured Kubernetes resources.  
 
-
 ```
 $ brew install kubernetes-helm
 ==> Downloading https://homebrew.bintray.com/bottles/kubernetes-helm-2.4.2.sierr
@@ -109,7 +108,6 @@ $HELM_HOME has been configured at /Users/odewahn/.helm.
 Tiller (the helm server side component) has been installed into your Kubernetes Cluster.
 Happy Helming!
 ```
-
 
 ## Prepare an initial JupyterHub config file
 
@@ -316,3 +314,9 @@ Once you're done, delete your cluster in order to stop further billing!
 ```
 gcloud container clusters delete notebook-test --zone=us-central1-b
 ```
+
+# Conclusion
+
+Clearly, this is still a pretty technical process.  However, by combining the ease of use of Helm with the cost-effectiveness and scalability of kubernetes on gcloud, running a state of the art JupyterHub deployment is within reach of most small organizations, or even an individual.
+
+By removing the pain of installing and operating JupyterHub, this project opens the doors to the classroom of the future to everyone.   
