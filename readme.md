@@ -223,7 +223,7 @@ proxy-public   10.11.254.221   104.155.179.31   80:30746/TCP   4m
 
 Then you can open you browser to `http://104.155.179.31` and boom!, Notebooks:
 
-<img src="images/jupyterhub-login.png"/>
+<img width="100%" src="images/jupyterhub-login.png"/>
 
 Note that JupyterHub is running with a default dummy authenticator, so you can just enter any username and password. See [extending jupyterhub](http://zero-to-jupyterhub.readthedocs.io/en/latest/extending-jupyterhub.html) for details on how to set up authentication, which I won't cover here.
 
