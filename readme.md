@@ -265,7 +265,7 @@ docker push aodewahn/thinkdsp
 
 ## Deploying the Default Image to JupyterHub
 
-Once we've made a default image, we need to update the `config.yaml` we created earlier to make it be our default images.  (This is all covered in the [extending jupyterhub](http://zero-to-jupyterhub.readthedocs.io/en/latest/extending-jupyterhub.html) article).  
+Once we've made a default image, we need to update the `config.yaml` to set our new image as the default content served by JupyterHub.  (This is all covered in the [extending jupyterhub](http://zero-to-jupyterhub.readthedocs.io/en/latest/extending-jupyterhub.html) article).  
 
 To do it, add this section that maps the image to the image we just put on DockerHub:
 
