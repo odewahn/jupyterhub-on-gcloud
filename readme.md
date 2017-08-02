@@ -5,7 +5,7 @@
 
 JupyterLab is a complex piece of software, and setting up and operating has been out of reach for many organizations, but recent work by members of the Jupyter team - especially [@CarolWilling](https://twitter.com/WillingCarol), [@choldgraf](https://twitter.com/choldgraf), [@Mbussonn](https://twitter.com/Mbussonn),  [@minrk](https://twitter.com/minrk), and  [@yuvipanda](https://twitter.com/yuvipanda) -- has put JupyterHub within reach of a host organizations and individuals.  
 
-Their new project, a Helm package for JupyterHub and an accompanying article called [Zero to JupyterHub](http://zero-to-jupyterhub.readthedocs.io/en/latest/) on how to use it, describes the relatively straightforward steps needed to install and run JupyterHub on [Google cloud](https://cloud.google.com).
+Their new project, a Helm package for JupyterHub and associated documentation called [Zero to JupyterHub](http://zero-to-jupyterhub.readthedocs.io/en/latest/) on how to use it, describes the relatively straightforward steps needed to install and run JupyterHub on [Google cloud](https://cloud.google.com).
 
 In this article, I've followed along with the tutorial, adding additional detail on setting up gcloud, preparing a docker image with content project you want to deploy in it, and provided more background on some of the tools used.
 
