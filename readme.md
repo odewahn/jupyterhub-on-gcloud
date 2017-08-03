@@ -1,13 +1,13 @@
 # Deploying JupyterHub on Kubernetes on Google Cloud
 
-[JupyterHub](https://github.com/jupyterhub/jupyterhub), a "multi-user server for Jupyter Notebooks", is an essential tool for teaching and training at scale with Jupyter.  As described in [The course of the future – and the technology behind it
-](http://data.berkeley.edu/news/coursefuture), JupyterHub is being used to power an introductory class in Data Science taken by hundreds of students at Berkeley every semester.
+[JupyterHub](https://github.com/jupyterhub/jupyterhub), a "multi-user server for Jupyter Notebooks," is an essential tool for teaching and training at scale with Jupyter.  As described in [The course of the future – and the technology behind it
+](http://data.berkeley.edu/news/coursefuture), JupyterHub is being used to power an introductory class in data science taken by hundreds of students at Berkeley every semester.
 
-JupyterLab is a complex piece of software, and setting up and operating has been out of reach for many organizations, but recent work by members of the Jupyter team - especially [@CarolWilling](https://twitter.com/WillingCarol), [@choldgraf](https://twitter.com/choldgraf), [@Mbussonn](https://twitter.com/Mbussonn),  [@minrk](https://twitter.com/minrk), and  [@yuvipanda](https://twitter.com/yuvipanda) -- has put JupyterHub within reach of a host organizations and individuals.  
+JupyterLab is a complex piece of software, and setting up and operating it has been out of reach for many organizations, but recent work by members of the Jupyter team--especially [@CarolWilling](https://twitter.com/WillingCarol), [@choldgraf](https://twitter.com/choldgraf), [@Mbussonn](https://twitter.com/Mbussonn),  [@minrk](https://twitter.com/minrk), and  [@yuvipanda](https://twitter.com/yuvipanda)--has put JupyterHub within reach of a host of organizations and individuals.  
 
 Their new project, a Helm package for JupyterHub and an accompanying article called [Zero to JupyterHub](http://zero-to-jupyterhub.readthedocs.io/en/latest/) on how to use it, describes the relatively straightforward steps needed to install and run JupyterHub on [Google cloud](https://cloud.google.com).
 
-In this article, I've followed along with the tutorial, adding additional detail on setting up gcloud, preparing a docker image with content project you want to deploy in it, and provided more background on some of the tools used.
+In this article, I've followed along with the tutorial, adding additional detail on setting up gcloud, preparing a docker image with the content project you want to deploy in it, and provided more background on some of the tools used.
 
 ## Introduction
 
@@ -89,7 +89,7 @@ $ brew install kubernetes-helm
 Bash completion has been installed to:
   /usr/local/etc/bash_completion.d
 ==> Summary
-🍺  /usr/local/Cellar/kubernetes-helm/2.4.2: 48 files, 122.4MB
+ߍꠠ/usr/local/Cellar/kubernetes-helm/2.4.2: 48 files, 122.4MB
 ```
 
 Then you have to run `helm init`; this has to be done once per k8s cluster.
@@ -229,7 +229,7 @@ Note that JupyterHub is running with a default dummy authenticator, so you can j
 
 ## Prepare Default Notebook to run on JupyterHub
 
-By default, JupyterHub just gives you a blank Notebook.  However, if you're teaching a class or something, and you want to give your students access to something you've already created, you need to prepare a docker image that will be served by default.
+By default, JupyterHub just gives you a blank Notebook.  However, if you're teaching a class and you want to give your students access to something you've already created, you need to prepare a docker image that will be served by default.
 
 To make a Docker image you can deploy onto JupyterHub, you need to `ADD` the repo to the `/home/jovyan` directory, and then set the `WORKDIR` to `/home/jovyan`.  
 
@@ -317,6 +317,6 @@ gcloud container clusters delete notebook-test --zone=us-central1-b
 
 # Conclusion
 
-Clearly, this is still a pretty technical process.  However, by combining the ease of use of Helm with the cost-effectiveness and scalability of kubernetes on gcloud, running a state of the art JupyterHub deployment is within reach of most small organizations, or even an individual.
+Clearly, this is still a pretty technical process.  However, by combining the ease of use of Helm with the cost-effectiveness and scalability of kubernetes on gcloud, running a state-of-the-art JupyterHub deployment is within reach of most small organizations, or even an individual.
 
 By removing the pain of installing and operating JupyterHub, this project opens the doors to the classroom of the future to everyone.   
