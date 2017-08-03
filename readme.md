@@ -138,8 +138,10 @@ You'll need to keep this file around, so be sure to commit it to a GitHub repo. 
 Now that we have helm, we can (finally!) use `helm install` to put the JupyterHub app on the cluster.  We'll use the config file we created in the previous step, and use the name `jupyterhub-test` as the name and namespace of the application (this is how Helm keeps up with the apps running on the cluster).
 
 ```
-helm install \
- https://github.com/jupyterhub/helm-chart/releases/download/v0.3.1/jupyterhub-v0.3.1.tgz \
+helm repo add jupyterhub https://jupyterhub.github.io/helm-chart/
+helm repo update
+helm install jupyterhub/jupyterhub \
+ --version=v0.4 \
  --name=jupyterhub-test \
  --namespace=jupyterhub-test \
  -f config.yaml
@@ -283,13 +285,13 @@ Next, get the release name of the app, which you set up earlier.  Note that if y
 ```
 $ helm list
 NAME           	REVISION	UPDATED                 	STATUS  	CHART            	NAMESPACE      
-jupyterhub-test	1       	Fri Jun  2 10:29:44 2017	DEPLOYED	jupyterhub-v0.3.1	jupyterhub-test
+jupyterhub-test	1       	Fri Jun  2 10:29:44 2017	DEPLOYED	jupyterhub-v0.4	jupyterhub-test
 ```
 
 Then upgrade the cluster (this is what the doc says is necessary):
 
 ```
-helm upgrade jupyterhub-test https://github.com/jupyterhub/helm-chart/releases/download/v0.3/jupyterhub-v0.3.tgz -f config.yaml
+helm upgrade jupyterhub-test jupyterhub/jupyterhub --version=v0.4 -f config.yaml
 ```
 
 You can run this command until the container is built:
