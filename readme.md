@@ -1,7 +1,7 @@
 # Deploying JupyterHub on Kubernetes on Google Cloud
 
-[JupyterHub](https://github.com/jupyterhub/jupyterhub), a "multi-user server for Jupyter Notebooks," is an essential tool for teaching and training at scale with Jupyter.  As described in [The course of the future – and the technology behind it
-](http://data.berkeley.edu/news/coursefuture), JupyterHub is being used to power an introductory class in data science taken by hundreds of students at Berkeley every semester.
+[JupyterHub](https://github.com/jupyterhub/jupyterhub), a "multi-user server for Jupyter Notebooks," is an essential tool for teaching and training at scale with Jupyter.  As described in _[The course of the future – and the technology behind it
+](http://data.berkeley.edu/news/coursefuture)_, JupyterHub is being used to power an introductory class in data science taken by hundreds of students at Berkeley every semester.
 
 JupyterLab is a complex piece of software, and setting up and operating it has been out of reach for many organizations, but recent work by members of the Jupyter team&#8212;especially [@CarolWilling](https://twitter.com/WillingCarol), [@choldgraf](https://twitter.com/choldgraf), [@Mbussonn](https://twitter.com/Mbussonn),  [@minrk](https://twitter.com/minrk), and  [@yuvipanda](https://twitter.com/yuvipanda)&#8212;has put JupyterHub within reach of a host of organizations and individuals.  
 
