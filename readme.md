@@ -127,8 +127,8 @@ Then create a file called `config.yaml` with the following contents:
 ```
 hub:
   cookieSecret: "b85e9538b93761f2336025a3d5696cc237ee26c8115979d90b86b08b0c326957"
-token:
-  proxy: "f13056563eafb75ab062020dadef8c941b18f69da623e8af58554c06c585881a"
+proxy:
+  secretToken: "f13056563eafb75ab062020dadef8c941b18f69da623e8af58554c06c585881a"
 ```
 
 You'll need to keep this file around, so be sure to commit it to a GitHub repo. [THIS IS PROBABLY NOT GREAT ADVICE SINCE IT CONTAINS SECRETS, BUT WHAT IS THE BEST WAY TO DO IT?]
